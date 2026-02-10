@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  base: '/Docs',
+  base: '/Plugins',
   title: "FragMC Docs",
   description: "Official Documentation for FragMC Core, Addons, and API",
   themeConfig: {
