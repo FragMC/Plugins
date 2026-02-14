@@ -10,8 +10,8 @@ Frost is configured via `plugins/Frost/config.yml`. Below are the key sections w
 
 ```yaml
 settings:
-  instant-item-replace: true   # if true, locked hotbar slots are refreshed frequently
-  default-profile: "warrior"   # profile used for new players
+  instant-item-replace: true # if true, locked hotbar slots are refreshed frequently
+  default-profile: "warrior" # profile used for new players
 ```
 
 - `instant-item-replace` controls how quickly the Hotbar Lock refresh routine runs.
@@ -52,13 +52,50 @@ profiles:
 ```
 
 Notes:
+
 - Slots are 0–8 (hotbar). Any slot you define becomes locked when Hotbar Lock is enabled.
 - Items support `material`, `custom-name`, `lore`, `enchantments`, `flags`, `custom-model-data`.
 - Players change profiles only via `/frost setprofile` or other plugins through the API.
 
 ## cosmetics
 
-Top‑level categories hold purchasable/equippable items. Built‑in categories include `weapon-skins`, `armor-cosmetics`, and `particle-effects`.
+Top‑level categories hold purchasable/equippable items. Built‑in categories include:
+
+- `weapon-skins` – per‑slot weapon overrides (e.g., change the item’s model/lore).
+- `armor-cosmetics` – whole sets or individual pieces.
+- `particle-effects` – visual effects with triggers and types.
+
+### Enchantment Key Format
+
+Use the Minecraft namespaced key form for enchantments. The parser accepts:
+
+- Hyphens: `fire-aspect`, `wind-burst`
+- Underscores: `fire_aspect`, `wind_burst`
+- Spaces: `fire aspect`, `wind burst`
+
+All three map to the same enchantment internally.
+
+### Admin-Only Cosmetics
+
+You can mark any cosmetic as admin-only so it is hidden from the shop for non-admins and cannot be purchased by them. Admins automatically have access to all cosmetics and can equip them without purchase.
+
+```yaml
+cosmetics:
+  weapon-skins:
+    items:
+      dev-spear:
+        admin-only: true
+        name: "<gold><bold>Developer Spear</bold>"
+        price: 0.0
+        icon: STICK
+        applies-to:
+          profile: "warrior"
+          slot: 0
+        modifications:
+          custom-model-data: 9001
+          lore:
+            - "<gold>Internal use only"
+```
 
 Example: weapon skins
 
@@ -98,8 +135,8 @@ cosmetics:
         price: 2500.0
         icon: FIRE_CHARGE
         particle: FLAME
-        effect-type: TRAIL          # TRAIL | SURROUND | BURST
-        trigger: ALWAYS             # ALWAYS | JUMP | SPRINT | SNEAK | GLIDE | SWIM | RIPTIDE | MACE_SMASH | DAMAGE_DEALT | DAMAGE_TAKEN | KILL | BLOCK_BREAK | BLOCK_PLACE
+        effect-type: TRAIL # TRAIL | SURROUND | BURST
+        trigger: ALWAYS # ALWAYS | JUMP | SPRINT | SNEAK | GLIDE | SWIM | RIPTIDE | MACE_SMASH | DAMAGE_DEALT | DAMAGE_TAKEN | KILL | BLOCK_BREAK | BLOCK_PLACE
         count: 3
         offset-x: 0.2
         offset-y: 0.1
@@ -108,6 +145,7 @@ cosmetics:
 ```
 
 Notes:
+
 - Particle availability depends on your server version; unsupported effects are skipped.
 - Equipped cosmetics persist and can be toggled in the `/equip` menu.
 
@@ -116,7 +154,7 @@ Notes:
 ```yaml
 shop:
   title: "<gradient:aqua:blue>Cosmetics Shop</gradient>"
-  rows: 6   # 1–6
+  rows: 6 # 1–6
 ```
 
 Controls the Java inventory GUI layout. Bedrock players see Floodgate forms.
@@ -133,4 +171,3 @@ Defined in `plugin.yml`:
 ## Reloading
 
 Edit `config.yml`, then run `/frost reload` to re‑load settings, profiles, and cosmetics.
-
