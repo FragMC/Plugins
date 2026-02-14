@@ -12,22 +12,23 @@ Profile-based hotbars, a cosmetics shop and equip menu, particle effects, and Be
 - Cosmetics shop with Vault pricing
 - Equip menu to toggle owned cosmetics
 - Particle effects (always-on, trail, surround, burst) with event triggers
-- Bedrock UI via Floodgate forms
+- Bedrock UI via Floodgate + Cumulus forms
 - SQLite-backed player data (profiles, locks, owned/equipped cosmetics)
 
 ## Requirements
 
 - Paper 1.21.1+
 - Java 21
-- Vault (economy)
+- Vault (economy provider)
 - Optional: Geyser + Floodgate for Bedrock support
 
 ## Installation
 
-1. Place the Frost jar in `plugins/`.
-2. Start the server to generate `plugins/Frost/config.yml` and the SQLite database.
-3. Edit `config.yml` to suit your server.
-4. Run `/frost reload` to apply changes.
+1. Build or download the plugin jar (see [Development](/frost/development)).
+2. Place the jar in `plugins/`.
+3. Start the server to generate `plugins/Frost/config.yml` and the SQLite database.
+4. Edit `config.yml` to suit your server.
+5. Run `/frost reload` to apply changes.
 
 ## Quick Commands
 
@@ -47,9 +48,9 @@ See the full [Commands & Permissions](/frost/commands) and [Configuration](/fros
 ## Developer Notes
 
 A small public API is available to:
+
 - Set a player’s profile
 - Query available profiles
 - Manage owned cosmetics
 
 See [Development](/frost/development) for build and API entry points.
-
