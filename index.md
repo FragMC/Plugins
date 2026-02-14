@@ -30,7 +30,7 @@ features:
   - title: ⚡ High Performance
     details: Optimized for Paper with asynchronous world handling to keep your server lag-free.
   - title: ⛏️ Hotbar management
-    details: Easy hotbar and item management with Frost
+    details: Easy hotbar and item management with [Frost](/frost/)
   - title: ⚔️ PVP Management
     details: Manage PVP and maps with Glacier
   - title: 🌐 Web-based teleportation

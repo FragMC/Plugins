@@ -10,7 +10,8 @@ export default defineConfig({
       { text: 'IcedSpear', link: '/icedspear/' },
       { text: 'WebLink', link: '/weblink/' },
       { text: 'CheckPoints', link: '/checkpoints/' },
-      { text: 'Telepipe', link: '/telepipe/' }
+      { text: 'Telepipe', link: '/telepipe/' },
+      { text: 'Frost', link: '/frost/' }
     ],
 
     sidebar: [
@@ -52,6 +53,15 @@ export default defineConfig({
           { text: 'Configuration', link: '/telepipe/#configuration' },
           { text: 'JSON Format', link: '/telepipe/#json-format' },
           { text: 'Download', link: 'https://modrinth.com/plugin/telepipe' }
+        ]
+      },
+      {
+        text: 'Frost',
+        items: [
+          { text: 'Overview', link: '/frost/' },
+          { text: 'Commands & Permissions', link: '/frost/commands' },
+          { text: 'Configuration', link: '/frost/configuration' },
+          { text: 'Development', link: '/frost/development' }
         ]
       }
     ],
