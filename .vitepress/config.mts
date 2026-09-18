@@ -10,6 +10,10 @@ export default defineConfig({
       { text: 'IcedSpear', link: '/icedspear/' },
       { text: 'WebLink', link: '/weblink/' },
       { text: 'CheckPoints', link: '/checkpoints/' },
+      { text: 'Redempt', link: '/redempt/' },
+      { text: 'Blocks', link: '/blocks/' },
+      { text: 'Editor', link: '/editor/' },
+      { text: 'MapBot', link: '/mapbot/' },
       { text: 'Telepipe', link: '/telepipe/' },
       { text: 'Frost', link: '/frost/' }
     ],
@@ -62,6 +66,34 @@ export default defineConfig({
           { text: 'Commands & Permissions', link: '/frost/commands' },
           { text: 'Configuration', link: '/frost/configuration' },
           { text: 'Development', link: '/frost/development' }
+        ]
+      },
+      {
+        text: 'Redempt',
+        items: [
+          { text: 'Overview', link: '/redempt/' },
+          { text: 'Download', link: 'https://modrinth.com/plugin/redempt' }
+        ]
+      },
+      {
+        text: 'Blocks',
+        items: [
+          { text: 'Overview', link: '/blocks/' },
+          { text: 'FMM', link: '/blocks/#fmm-auto-install' }
+        ]
+      },
+      {
+        text: 'Editor',
+        items: [
+          { text: 'Overview', link: '/editor/' },
+          { text: 'Commands', link: '/editor/#commands' }
+        ]
+      },
+      {
+        text: 'MapBot',
+        items: [
+          { text: 'Overview', link: '/mapbot/' },
+          { text: 'Viewer', link: '/mapbot/#viewer-linked' }
         ]
       }
     ],

@@ -34,10 +34,11 @@ A lightweight and powerful checkpoint system for Paper servers. Set personal che
 *   Tab completion for all commands and player names
 
 ## 🔧 Technical Details
-*   **Minecraft Version**: Paper
-*   **Java Version**: 21 (minimum: 17)
+*   **Minecraft Version**: Paper 26.2 `26.2.build.123-stable`
+*   **Java Version**: 25
 *   **Dependencies**: None
 *   **Storage**: In-memory (per-session)
+*   **Version**: `2.0.10-alpha` `api-version: '26.2'`
 
 ## 🔐 Permissions
 

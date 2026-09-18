@@ -1,14 +1,17 @@
 # IcedSpear
 
-IcedSpear is the core plugin for FragMC, providing essential lobby and game management features.
+IcedSpear is the core plugin for FragMC, providing essential lobby and game management features for **Paper 26.2** `26.2.build.123-stable` `Java 25`.
 
 ## Overview
 
 IcedSpear handles the core logic for:
-- **Map Management**: Dynamic instance creation and lifecycle handling.
+- **Map Management**: Dynamic instance creation and lifecycle handling with `FastAsyncWorldEdit` `2.11.1` and `12h` cache.
 - **Party System**: Robust party management for group play.
 - **Social Features**: Friend lists and social interactions.
 - **Competition**: Global and per-map leaderboards.
+- **Bedrock Crossplay**: Via `Geyser 2.2.0+` + `Floodgate 2.2.0+` `softdepend`.
+
+Now `2.0.10-alpha` with **Blocks** `Smart zone blocks` and **Editor** `lightweight Dropbox + Multiverse` addons (`IcedSpear/Addons/Blocks` `Editor` `2.0.10-alpha`).
 
 It is designed to be extensible via the [API](./api/), allowing developers to create custom game modes and integrations.
 

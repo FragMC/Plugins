@@ -4,7 +4,7 @@ title: Frost
 
 # Frost
 
-Profile-based hotbars, a cosmetics shop and equip menu, particle effects, and Bedrock UI support for Paper 1.21.x. Player data persists to SQLite and integrates with Vault for economy.
+Profile-based hotbars, a cosmetics shop and equip menu, particle effects, and Bedrock UI support for Paper 26.2. Player data persists to SQLite and integrates with Vault for economy. Now `2.0.10-alpha` with fixed Spear/Mace/Wind Charge hotbar and double-chest inventory customizer.
 
 ## Features
 
@@ -17,10 +17,11 @@ Profile-based hotbars, a cosmetics shop and equip menu, particle effects, and Be
 
 ## Requirements
 
-- Paper 1.21.1+
-- Java 21
+- Paper 26.2 `26.2.build.123-stable`+
+- Java 25
 - Vault (economy provider)
-- Optional: Geyser + Floodgate for Bedrock support
+- Optional: Geyser 2.2.0+ + Floodgate 2.2.0+ for Bedrock crossplay (Cumulus forms)
+- Optional: FreeMinecraftModels 2.7.1+ for proper item skins
 
 ## Installation
 
@@ -32,18 +33,21 @@ Profile-based hotbars, a cosmetics shop and equip menu, particle effects, and Be
 
 ## Quick Commands
 
-- `/shop` – open the cosmetics shop
-- `/equip` – open your equip menu
-- `/togglelock` – toggle Hotbar Lock on/off
-- `/frost <reload|setprofile|listprofiles|givecosmetic>` – admin tools
+- `/shop` - open the cosmetics shop (Bedrock via Floodgate forms)
+- `/equip` - open your equip menu (Bedrock forms)
+- `/inventory` (`/inv` `hotbar`) - double-chest (54) customizer for hotbar slots 4-9, Gray glass filler for blocked slots
+- `/togglelock` - toggle Hotbar Lock on/off
+- `/frost <reload|setprofile|listprofiles|givecosmetic|inventory>` - admin tools
 
 See the full [Commands & Permissions](/frost/commands) and [Configuration](/frost/configuration).
 
 ## Support Matrix
 
-- Paper 1.21.x, Java 21
+- Paper 26.2 `26.2.build.123-stable`, Java 25
 - Economy via Vault
-- Optional Bedrock support via Floodgate
+- Bedrock crossplay via Geyser 2.2.0+ + Floodgate 2.2.0+ (Cumulus forms for shop/equip/inventory)
+- Item skins via FreeMinecraftModels 2.7.1+ (display entity with armor-stand fallback for Bedrock)
+- Fixed hotbar: slots 1-3 locked Spear (TRIDENT) / Mace (MACE) / Wind Charge (WIND_CHARGE) with `custom-model-data 1001-1003` or `fmm_model frost_spear/mace/wind_charge`
 
 ## Developer Notes
 
