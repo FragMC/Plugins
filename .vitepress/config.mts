@@ -29,7 +29,8 @@ export default defineConfig({
         text: 'Setup All',
         items: [
           { text: 'All Plugins Together', link: '/guide/setup-all' },
-          { text: 'Quick Start (26.2)', link: '/guide/setup-all#_1-download-build' }
+          { text: 'Quick Start (26.2)', link: '/guide/setup-all#_1-download-build' },
+          { text: 'Plugin Portal', link: '/guide/plugin-portal' }
         ]
       },
       {
