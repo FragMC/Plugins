@@ -4,19 +4,30 @@ export default defineConfig({
   base: '/Plugins',
   title: "FragMC Docs",
   description: "Official Documentation for FragMC Core, Addons, and API",
+  head: [
+    ['link', { rel: 'icon', href: 'https://raw.githubusercontent.com/FragMC/Plugins/main/docs/favicon.ico' }],
+    ['meta', { name: 'theme-color', content: '#5865F2' }]
+  ],
   themeConfig: {
+    logo: { src: 'https://raw.githubusercontent.com/FragMC/Plugins/main/docs/logo.png', width: 24, height: 24 },
+    siteTitle: 'FragMC Docs',
+    outline: [2, 3],
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Setup All', link: '/guide/setup-all' },
-      { text: 'IcedSpear', link: '/icedspear/' },
-      { text: 'WebLink', link: '/weblink/' },
-      { text: 'CheckPoints', link: '/checkpoints/' },
-      { text: 'Redempt', link: '/redempt/' },
-      { text: 'Blocks', link: '/blocks/' },
-      { text: 'Editor', link: '/editor/' },
-      { text: 'MapBot', link: '/mapbot/' },
-      { text: 'Telepipe (Deprecated)', link: '/telepipe/' },
-      { text: 'Frost', link: '/frost/' }
+      { text: 'Setup', link: '/guide/setup-all' },
+      { text: 'Plugins', items: [
+        { text: 'IcedSpear', link: '/icedspear/' },
+        { text: 'Frost', link: '/frost/' },
+        { text: 'CheckPoints', link: '/checkpoints/' },
+        { text: 'Redempt', link: '/redempt/' },
+        { text: 'WebLink', link: '/weblink/' },
+      ]},
+      { text: 'Addons', items: [
+        { text: 'Blocks', link: '/blocks/' },
+        { text: 'Editor', link: '/editor/' },
+        { text: 'IcedScore', link: '/icedspear/features' },
+        { text: 'MapBot', link: '/mapbot/' },
+      ]},
+      { text: 'Telepipe', link: '/telepipe/' },
     ],
 
     sidebar: [

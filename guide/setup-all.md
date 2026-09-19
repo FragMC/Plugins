@@ -4,83 +4,93 @@ title: Setup All Plugins Together
 
 # Setup All Plugins Together
 
-This guide shows how to install and configure the **current FragMC stack** together on one **Paper 26.2** `26.2.build.123-stable` `Java 25` server. Use this if you want the full FragMC experience (maps, parties, leaderboards, shop, checkpoints, redeem, and the new editor/blocks).
+Install the full **FragMC stack** on one **Paper 26.2** server in under 10 minutes. This page covers the current `2.0.10-alpha` `Java 25` stack in the order that matters.
 
-> **Deprecated:** `Telepipe` is deprecated and **not** included below. See its page for details - use `IcedSpear` map warping instead.
+::: warning Deprecated
+`Telepipe` is **deprecated** and not part of this guide. Use `IcedSpear` map warping. See `Telepipe` page if you still need it.
+:::
 
-## Overview
+## At a Glance
 
-You will install **7 jars** (all `2.0.10-alpha` `com.stufy.fragmc`):
+| Group | Plugins | Version | Notes |
+|-------|---------|---------|-------|
+| **Core** | IcedSpear | `2.0.10-alpha` | Map/Party/Friends/Leaderboards |
+| **Addons** | Editor, Blocks, IcedScore, Weblink | `2.0.10-alpha` | Same `FragMC/Icedspear` repo |
+| **Standalone** | Frost, CheckPoints, Redempt | `2.0.10-alpha` | Shop, checkpoints, redeem |
+| **Bot** | Map-Submission-Bot | `2.0.10-alpha` | `Node 20` `Docker` `ghcr.io/fragmc/map-submission-bot:latest` |
 
-*   **Core:** `IcedSpear` `2.0.10-alpha`
-*   **Addons (same repo `FragMC/Icedspear`):** `Editor` `editor-addon`, `Blocks` `blocks-addon` (requires `Editor`), `IcedScore` `IcedScores`, `Weblink` `weblink-addon`
-*   **Standalone:** `Frost` `2.0.10-alpha`, `CheckPoints` `2.0.10-alpha`, `Redempt` `2.0.10-alpha`
-*   **Separate bot (not a plugin):** `Map-Submission-Bot` `2.0.10-alpha` `Node 20` `Docker` `ghcr.io/fragmc/map-submission-bot:latest`
+**What you get:** Maps, parties, leaderboards, shop with hotbar skins, checkpoints, redeem codes, in-game editor, and Discord ticket flow.
 
 ## Prerequisites
 
-*   `Paper 26.2` `26.2.build.123-stable` `Java 25` `Temurin-25.0.4.1+` `Maven 3.9+`
-*   `FastAsyncWorldEdit 2.11.1` + `WorldEdit` (for `IcedSpear` maps)
-*   `Vault` + `EssentialsX 2.20.1` (for `Frost` economy + `Redempt` money)
-*   Optional (but recommended for `FULL` stack): `Geyser 2.2.0+` + `Floodgate 2.2.0+` for Bedrock crossplay `9aa0a6`, `FreeMinecraftModels 2.7.1+` for `Blocks`/`Frost` skins, `Multiverse-Core` for `Editor` worlds, `SQLite` is bundled (no MySQL needed)
+::: info Requirements
+**Required:** Paper `26.2.build.123-stable`, Java `25` (Temurin), Maven `3.9+`
 
-## 1. Download / Build
+**For maps:** FastAsyncWorldEdit `2.11.1` + WorldEdit
 
-All are on `GitHub Packages` `https://maven.pkg.github.com/FragMC/*` `com.stufy.fragmc` `2.0.10-alpha` (not `Maven Central`) plus `Modrinth`:
+**For economy:** Vault + EssentialsX `2.20.1`
 
-```bash
-# Or build locally with JDK 25:
-mvn -B -f IcedSpear/pom.xml clean install -DskipTests
-mvn -B -f Addons/Editor/pom.xml clean install -DskipTests
-mvn -B -f Addons/Blocks/pom.xml clean package -DskipTests
-mvn -B -f Addons/IcedScore/pom.xml clean package -DskipTests
-mvn -B -f Addons/Weblink/pom.xml clean package -DskipTests
-mvn -B -f Frost/pom.xml clean package -DskipTests
-mvn -B -f CheckPoints/pom.xml clean package -DskipTests
-mvn -B -f Redempt/pom.xml clean package -DskipTests
-```
+**Optional but recommended:** Geyser `2.2.0+` + Floodgate `2.2.0+` (Bedrock), FreeMinecraftModels `2.7.1+` (skins), Multiverse-Core (editor worlds). SQLite is bundled.
+:::
 
-*   `IcedSpear` `IcedSpear/target/icedspear-2.0.10-alpha.jar`
-*   `Editor` `Addons/Editor/target/editor-addon-2.0.10-alpha.jar`
-*   `Blocks` `Addons/Blocks/target/blocks-addon-2.0.10-alpha.jar` (needs `Editor` - `depend: [EditorAddon]` `IcedSpear/Addons/Blocks/src/main/resources/plugin.yml:7`)
-*   `IcedScore` `Addons/IcedScore/target/IcedScores-2.0.10-alpha.jar` (needs `IcedSpear` + `ImageFrame`)
-*   `Weblink` `Addons/Weblink/target/weblink-addon-2.0.10-alpha.jar`
-*   `Frost` `Frost/target/frost-2.0.10-alpha.jar`
-*   `CheckPoints` `CheckPoints/target/checkpoints-2.0.10-alpha.jar`
-*   `Redempt` `Redempt/target/redempt-2.0.10-alpha.jar` (note `artifactId` `redempt` lowercase, file `Redempt-2.0.10-alpha.jar` due to `project.name`)
+## 1. Get the Jars
 
-Or download from `Releases` `v2.0.10-alpha` `Frost` `IcedSpear` `CheckPoints` `Redempt` and `GitHub Packages` `ghcr.io/fragmc/map-submission-bot:latest` for the bot.
+All plugins are published to **GitHub Packages** and **Modrinth** as `2.0.10-alpha`. Pick one:
 
-## 2. Install Order (important for dependencies)
+::: tip Download (Recommended)
+Grab the ready-made jars from **Releases** `v2.0.10-alpha` on GitHub (`Frost`, `IcedSpear`, `CheckPoints`, `Redempt`) and `ghcr.io/fragmc/map-submission-bot:latest` for the bot. No build needed.
+:::
 
-Put `jars` in `plugins/` in this order, then start:
+<details>
+<summary>Or build locally with JDK 25</summary>
 
-1.  `FastAsyncWorldEdit-Bukkit` `2.11.1` + `Vault` + `EssentialsX` `2.20.1`
-2.  `IcedSpear-2.0.10-alpha.jar`
-3.  `EditorAddon-2.0.10-alpha.jar` (requires `IcedSpear`)
-4.  `BlocksAddon-2.0.10-alpha.jar` (requires `EditorAddon` - will auto-install `FreeMinecraftModels/models/fragmc_zones/*.bbmodel` dummies `BlocksAddon.java:49` then `/fmm reload`)
-5.  `IcedScores-2.0.10-alpha.jar` (`ImageFrame` `2026.1.4` required) + `weblink-addon-2.0.10-alpha.jar`
-6.  `Frost-2.0.10-alpha.jar` + `CheckPoints-2.0.10-alpha.jar` + `Redempt-2.0.10-alpha.jar`
-7.  `Geyser-Spigot` `Floodgate` `2.2.0+` + `FreeMinecraftModels` `2.7.1+` if you want `Bedrock` + `FMM` skins
+You need `Java 25` and `Maven 3.9+`. Run in order (some addons depend on the core):
 
-Start once to generate `plugins/*/config.yml` and `plugins/EditorAddon/dropbox/` etc.
+*   Core and editor: `IcedSpear` → `Editor` (install first so others can find it)
+*   Then: `Blocks`, `IcedScore`, `Weblink`, `Frost`, `CheckPoints`, `Redempt`
+
+Artifacts land in `target/` e.g. `IcedSpear/target/icedspear-2.0.10-alpha.jar`, `Addons/Editor/target/editor-addon-2.0.10-alpha.jar`, etc.
+
+</details>
+
+## 2. Install Order
+
+Drop the jars into `plugins/` in this order, then start the server once to generate configs:
+
+| Order | Jar | Why this order |
+|-------|-----|----------------|
+| 1 | `FastAsyncWorldEdit-Bukkit` `2.11.1`, `Vault`, `EssentialsX` `2.20.1` | Dependencies |
+| 2 | `IcedSpear-2.0.10-alpha.jar` | Core |
+| 3 | `EditorAddon-2.0.10-alpha.jar` | Requires core |
+| 4 | `BlocksAddon-2.0.10-alpha.jar` | Requires Editor, auto-installs zone models |
+| 5 | `IcedScores-2.0.10-alpha.jar` + `weblink-addon-2.0.10-alpha.jar` | Needs `IcedSpear` + `ImageFrame` |
+| 6 | `Frost`, `CheckPoints`, `Redempt` `2.0.10-alpha` | Standalone |
+| 7 | `Geyser-Spigot` + `Floodgate` + `FreeMinecraftModels` | Optional: Bedrock + skins |
+
+After first start you’ll see `plugins/Frost/config.yml`, `plugins/IcedSpear/config.yml`, `plugins/EditorAddon/dropbox/` etc.
 
 ## 3. Configure
 
-*   **IcedSpear** `plugins/IcedSpear/config.yml` `map-data-url: "https://raw.githubusercontent.com/FragMC/fragmc.github.io/main/icedspear.json"` `world-settings` `Geyser` `softdepend`
-*   **Frost** `plugins/Frost/config.yml` `warrior` now `0 TRIDENT` `1 MACE` `2 WIND_CHARGE` `fmm_model` `1001-1003` `slots 3-8` via `/inventory` `54` `GRAY_STAINED_GLASS_PANE` `Frost/Frost/src/main/resources/config.yml:18`
-*   **Redempt** `plugins/Redempt/config.yml` `currency-symbol: "$"` `promocodes.db` `SQLite`
-*   **Editor** `plugins/EditorAddon/config.yml` add `dropbox-enc-key: "your-32-byte-base64"` to enable `AES/GCM` encrypt for `dropbox/<uuid>.json` `EditorAddon.java:30`
-*   **WebLink** `plugins/Weblink/config.yml` `webhook-port: 25531` `webhook-secret` (move from `fragmc.github.io/shop.html:1310` hardcoded `HMAC_SECRET` to `env` `WEBLINK_HMAC_SECRET`)
-*   **MapBot** `Map-Submission-Bot/.env` `DISCORD_TOKEN, GUILD_ID, DISCORD_CLIENT_ID, EMBED_CHANNEL_ID, OPEN_TICKETS_CATEGORY_ID, CLOSED_TICKETS_CATEGORY_ID, TRANSCRIPTS_CHANNEL_ID, GITHUB_TOKEN, GITHUB_OWNER, GITHUB_REPO, GITHUB_BRANCH, ICEDSPEAR_JSON_PATH` `Map-Submission-Bot/.env.example:1` `docker-compose.yml:11`
+::: info Key Files
+All paths are relative to your server `plugins/` folder. Edit with any text editor, then `/frost reload` or restart.
+:::
+
+| Plugin | File | What to Set |
+|--------|------|-------------|
+| **IcedSpear** | `IcedSpear/config.yml` | `map-data-url` points to your `icedspear.json` |
+| **Frost** | `Frost/config.yml` | `warrior` hotbar is now `Spear/Mace/Wind Charge` in slots 1-3, slots 4-9 via `/inventory` |
+| **Redempt** | `Redempt/config.yml` | `currency-symbol`, SQLite `promocodes.db` |
+| **Editor** | `EditorAddon/config.yml` | Add `dropbox-enc-key` to encrypt Dropbox tokens |
+| **WebLink** | `Weblink/config.yml` | `webhook-port` and `webhook-secret` (use an env var) |
+| **MapBot** | `Map-Submission-Bot/.env` | All Discord/GitHub IDs (see `.env.example`) |
 
 ## 4. First Run Checklist
 
-1.  `Paper 26.2` `Java 25` starts, all `2.0.10-alpha` `enable` with `softdepend` `Geyser/Floodgate` `FMM` `Multiverse-Core` if present `EditorAddon.java:30`
-2.  In-game `Java` as `OP` or `frost.admin` `icedspear.admin` `redempt.admin`: `/map create test` -> first time forces `/map linkdropbox <token>` `EditorAddon.java:69`
-3.  `/editor preview` toggles `CREATIVE` (visible `GLASS/GOLD/EMERALD` no hitbox) <-> `ADVENTURE` (hidden `AIR` + floating `gold/emerald` `2.5` blocks above spinning `BlocksAddon.java:50`)
-4.  On Discord `MapBot` `EMBED_CHANNEL_ID` should have `Submit a map | Report a map` embed `Use the buttons below... How to create a map` `Map-Submission-Bot/src/index.js:27`
-5.  `Web Viewer` `https://fragmc.github.io/maps/viewer.html?id=<id>` or `?schematic=<dl.dropbox>` should load `icedspear.json` both `legacy` `tutorial` and `maps: [{id, schematic_url, allow_remixing, difficulty: null, verified: false}]` `IcedSpear/src/main/java/com/stufy/fragmc/icedspear/managers/SchematicManager.java:100` handles both, `viewer.html:115` merges.
+1.  Start `Paper 26.2` with `Java 25` - all plugins should enable green. If you have `Geyser`/`Floodgate`/`FMM`/`Multiverse-Core`, they’ll be detected automatically.
+2.  In-game as `OP`: try `/map create test` - first time it will ask you to `/map linkdropbox` your Dropbox. Link once, then create again.
+3.  Try `/editor preview` - it should switch you between `Creative` (you see zone blocks as glass) and `Adventure` (blocks disappear, only floating gold/emerald markers remain).
+4.  On Discord, check your `MapBot` channel - you should see the `Submit a map | Report a map` embed. Try a test submission.
+5.  Open `https://fragmc.github.io/maps/viewer.html?id=tutorial` - it should show the `Tutorial` map, and `?schematic=<your dl.dropbox link>` should load your schematic.
 
 ## 5. Not Included
 

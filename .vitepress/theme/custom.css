@@ -1,0 +1,89 @@
+/* FragMC Docs - Custom Header & UI Polish */
+
+:root {
+  --vp-nav-height: 64px;
+  --vp-c-brand-1: #5865F2;
+  --vp-c-brand-2: #4752c4;
+}
+
+.VPNav {
+  backdrop-filter: saturate(180%) blur(12px);
+  background-color: rgba(14, 14, 17, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.VPNavBarTitle .title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.VPNavBarMenuLink {
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 12px !important;
+  transition: background 0.2s;
+}
+
+.VPNavBarMenuLink:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.VPHomeHero .name {
+  background: linear-gradient(135deg, #5865F2 0%, #EB459E 50%, #ED4245 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.VPFeature {
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent) !important;
+  transition: transform 0.2s, border-color 0.2s !important;
+}
+
+.VPFeature:hover {
+  transform: translateY(-2px);
+  border-color: rgba(88, 101, 242, 0.2) !important;
+}
+
+.vp-doc h2 {
+  border-top: none !important;
+  margin-top: 32px !important;
+  padding-top: 0 !important;
+}
+
+.vp-doc h2 .header-anchor {
+  color: var(--vp-c-brand-1);
+}
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vp-doc th {
+  background: rgba(88, 101, 242, 0.08);
+  font-weight: 600;
+}
+
+.vp-doc code {
+  font-size: 0.875em !important;
+}
+
+/* Reduce excessive inline code styling - make prose more readable */
+.vp-doc p code {
+  background: rgba(88, 101, 242, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(88, 101, 242, 0.15);
+}
+
+/* Callouts */
+.vp-doc .custom-block {
+  border-radius: 10px;
+}
