@@ -4,6 +4,8 @@ title: Redempt
 
 # Redempt
 
+[![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FRedempt-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/Redempt)
+
 Promo code redemption with EssentialsX, now `2.0.10-alpha` for **Paper 26.2** `26.2.build.123-stable` `Java 25` and Bedrock crossplay.
 
 ## Overview

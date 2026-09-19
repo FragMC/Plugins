@@ -13,6 +13,8 @@ IcedSpear handles the core logic for:
 
 Now `2.0.10-alpha` with **Blocks** `Smart zone blocks` and **Editor** `lightweight Dropbox + Multiverse` addons (`IcedSpear/Addons/Blocks` `Editor` `2.0.10-alpha`).
 
+It is available on [![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FIcedSpear-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/IcedSpear) and [Modrinth](https://modrinth.com/plugin/icedspear).
+
 It is designed to be extensible via the [API](./api/), allowing developers to create custom game modes and integrations.
 
 ## Documentation

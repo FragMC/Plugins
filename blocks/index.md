@@ -4,6 +4,8 @@ title: Blocks
 
 # Blocks Addon
 
+[![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FBlocks-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/Blocks)
+
 Smart zone blocks for IcedSpear `2.0.10-alpha` `Paper 26.2` `Java 25`. Requires `EditorAddon` `depend: [IcedSpear, EditorAddon]` `IcedSpear/Addons/Blocks/src/main/resources/plugin.yml:7`.
 
 ## Overview

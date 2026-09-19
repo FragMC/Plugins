@@ -1,5 +1,7 @@
 # WebLink Addon
 
+[![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FWebLink-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/WebLink)
+
 **WebLink** is a powerful IcedSpear addon that bridges your Minecraft server with your website. It enables secure account linking, real-time data fetching, and remote command execution.
 
 ## Features

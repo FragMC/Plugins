@@ -1,5 +1,7 @@
 # CheckPoints Plugin
 
+[![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FCheckPoints-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/CheckPoints)
+
 ## 🎯 Overview
 A lightweight and powerful checkpoint system for Paper servers. Set personal checkpoints and teleport back to them instantly!
 

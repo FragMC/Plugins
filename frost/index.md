@@ -39,6 +39,8 @@ Profile-based hotbars, a cosmetics shop and equip menu, particle effects, and Be
 - `/togglelock` - toggle Hotbar Lock on/off
 - `/frost <reload|setprofile|listprofiles|givecosmetic|inventory>` - admin tools
 
+[![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FFrost-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/Frost)
+
 See the full [Commands & Permissions](/frost/commands) and [Configuration](/frost/configuration).
 
 ## Support Matrix

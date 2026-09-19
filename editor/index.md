@@ -4,6 +4,8 @@ title: Editor
 
 # Editor Addon
 
+[![Hangar](https://img.shields.io/badge/Hangar-FragMC%2FEditor-2a2a2a?logo=papermc)](https://hangar.papermc.io/FragMC/Editor)
+
 Extremely lightweight server map editor `2.0.10-alpha` `Paper 26.2` `Java 25` for IcedSpear. No `OP`, per-world `FAWE` perms.
 
 ## Overview
