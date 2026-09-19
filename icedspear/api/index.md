@@ -37,32 +37,59 @@ The IcedSpear API allows developers to create addons that interact with IcedSpea
 
 ### Prerequisites
 
-- Java 21+
-- IcedSpear plugin installed on server
-- Paper/Spigot 1.21.4+
+- Java 25+
+- IcedSpear `2.0.10-alpha` installed on server
+- Paper 26.2 `26.2.build.123-stable`+
 
-### Adding IcedSpear as a Dependency
+### Adding IcedSpear as a Dependency (GitHub Packages - Plugin Portal)
 
-#### Maven
+IcedSpear is on `GitHub Packages` `https://maven.pkg.github.com/FragMC/Icedspear` `com.stufy.fragmc:icedspear:2.0.10-alpha` `26.2` (not Maven Central).
+
+**Maven `settings.xml` `~/.m2/settings.xml`:**
+```xml
+<servers>
+  <server>
+    <id>github</id>
+    <username>YOUR_GITHUB_USERNAME</username>
+    <password>YOUR_GITHUB_TOKEN</password>
+  </server>
+</servers>
+```
 
 ```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/FragMC/Icedspear</url>
+  </repository>
+  <repository>
+    <id>papermc</id>
+    <url>https://repo.papermc.io/repository/maven-public/</url>
+  </repository>
+</repositories>
+
 <dependencies>
     <dependency>
         <groupId>com.stufy.fragmc</groupId>
         <artifactId>icedspear</artifactId>
-        <version>1.2.0</version>
+        <version>2.0.10-alpha</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
 ```
 
-#### Gradle
-
-```groovy
+**Gradle `build.gradle.kts`:**
+```kotlin
+repositories {
+    maven { url = uri("https://maven.pkg.github.com/FragMC/Icedspear") }
+    maven("https://repo.papermc.io/repository/maven-public/")
+}
 dependencies {
-    compileOnly 'com.stufy.fragmc:icedspear:1.2.0'
+    compileOnly("com.stufy.fragmc:icedspear:2.0.10-alpha")
 }
 ```
+
+For `Editor` `Blocks` `IcedScore` `Weblink` same repo `https://maven.pkg.github.com/FragMC/Icedspear` with `editor-addon` `blocks-addon` `IcedScores` `weblink-addon` `2.0.10-alpha`.
 
 ### plugin.yml Configuration
 
@@ -71,7 +98,7 @@ name: YourAddon
 version: 1.0.0
 main: com.yourname.youraddon.YourAddon
 depend: [IcedSpear]
-api-version: 1.21
+api-version: '26.2'
 ```
 
 ---

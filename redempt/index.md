@@ -47,6 +47,30 @@ Redempt handles `redeem` codes from the FragMC shop `fragmc.github.io/shop.html`
 
 `mvn -B -f Redempt/pom.xml clean package` `Java 25` `maven-compiler 3.13.0` `release 25` `maven-shade 3.6.2`.
 
+## Maven - Use as Dependency (GitHub Packages)
+
+`Redempt` `2.0.10-alpha` on `https://maven.pkg.github.com/FragMC/Redempt` `com.stufy.fragmc:redempt:2.0.10-alpha`:
+
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/FragMC/Redempt</url>
+  </repository>
+</repositories>
+
+<dependencies>
+  <dependency>
+    <groupId>com.stufy.fragmc</groupId>
+    <artifactId>redempt</artifactId>
+    <version>2.0.10-alpha</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+```
+
+`settings.xml` needs `github` `username`/`GITHUB_TOKEN` `read:packages` as in `Frost` dev docs.
+
 ## Support Matrix
 
 - Paper 26.2, Java 25, `api-version: '26.2'` `Redempt/src/main/resources/plugin.yml:6`

@@ -36,3 +36,24 @@ On enable `installFmmModels()` `BlocksAddon.java:49` copies `src/main/resources/
 
 `mvn -B -f Addons/Blocks/pom.xml clean package` `com.stufy.fragmc:blocks-addon:2.0.10-alpha` `distinct package` `distributionManagement github` `https://maven.pkg.github.com/FragMC/Icedspear`.
 
+## Maven - Plugin Portal (GitHub Packages)
+
+`Blocks` `2.0.10-alpha` on `https://maven.pkg.github.com/FragMC/Icedspear` `com.stufy.fragmc:blocks-addon:2.0.10-alpha` - same repo as `IcedSpear` `Editor`:
+
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/FragMC/Icedspear</url>
+  </repository>
+</repositories>
+<dependencies>
+  <dependency>
+    <groupId>com.stufy.fragmc</groupId>
+    <artifactId>blocks-addon</artifactId>
+    <version>2.0.10-alpha</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+```
+

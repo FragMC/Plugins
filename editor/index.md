@@ -28,3 +28,24 @@ Extremely lightweight server map editor `2.0.10-alpha` `Paper 26.2` `Java 25` fo
 
 `mvn -B -f Addons/Editor/pom.xml clean install` `com.stufy.fragmc:editor-addon:2.0.10-alpha` `distinct package` `shade` `gson` `relocated` `com.stufy.fragmc.editor.libs.gson`.
 
+## Maven - Plugin Portal
+
+`Editor` `2.0.10-alpha` on `https://maven.pkg.github.com/FragMC/Icedspear` `com.stufy.fragmc:editor-addon:2.0.10-alpha`:
+
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/FragMC/Icedspear</url>
+  </repository>
+</repositories>
+<dependencies>
+  <dependency>
+    <groupId>com.stufy.fragmc</groupId>
+    <artifactId>editor-addon</artifactId>
+    <version>2.0.10-alpha</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+```
+

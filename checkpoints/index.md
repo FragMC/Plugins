@@ -48,10 +48,31 @@ A lightweight and powerful checkpoint system for Paper servers. Set personal che
 | `checkpoint.tp` | Teleport other players to their checkpoints | OP only |
 
 ## 📦 Installation
-1.  Download `checkpoints-[VERSION].jar`
+1.  Download `checkpoints-[VERSION].jar` (`2.0.10-alpha` for `26.2`)
 2.  Place in your server's `plugins/` folder
 3.  Restart your server
 4.  Done! No configuration needed
+
+## Maven - Use as Dependency
+
+`CheckPoints` `2.0.10-alpha` `https://maven.pkg.github.com/FragMC/CheckPoints` `com.stufy.fragmc:checkpoints:2.0.10-alpha`:
+
+```xml
+<repositories>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/FragMC/CheckPoints</url>
+  </repository>
+</repositories>
+<dependencies>
+  <dependency>
+    <groupId>com.stufy.fragmc</groupId>
+    <artifactId>checkpoints</artifactId>
+    <version>2.0.10-alpha</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+```
 
 ## 🚀 Usage Examples
 ```bash
