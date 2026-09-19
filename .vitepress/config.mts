@@ -7,6 +7,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Setup All', link: '/guide/setup-all' },
       { text: 'IcedSpear', link: '/icedspear/' },
       { text: 'WebLink', link: '/weblink/' },
       { text: 'CheckPoints', link: '/checkpoints/' },
@@ -14,11 +15,18 @@ export default defineConfig({
       { text: 'Blocks', link: '/blocks/' },
       { text: 'Editor', link: '/editor/' },
       { text: 'MapBot', link: '/mapbot/' },
-      { text: 'Telepipe', link: '/telepipe/' },
+      { text: 'Telepipe (Deprecated)', link: '/telepipe/' },
       { text: 'Frost', link: '/frost/' }
     ],
 
     sidebar: [
+      {
+        text: 'Setup All',
+        items: [
+          { text: 'All Plugins Together', link: '/guide/setup-all' },
+          { text: 'Quick Start (26.2)', link: '/guide/setup-all#_1-download-build' }
+        ]
+      },
       {
         text: 'IcedSpear',
         items: [
@@ -51,9 +59,9 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Telepipe',
+        text: 'Telepipe (Deprecated)',
         items: [
-          { text: 'Overview', link: '/telepipe/#telepipe' },
+          { text: 'Overview (Deprecated)', link: '/telepipe/' },
           { text: 'Configuration', link: '/telepipe/#configuration' },
           { text: 'JSON Format', link: '/telepipe/#json-format' },
           { text: 'Download', link: 'https://modrinth.com/plugin/telepipe' }

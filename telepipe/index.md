@@ -1,4 +1,12 @@
-# Telepipe
+---
+title: Telepipe (Deprecated)
+---
+
+# Telepipe - Deprecated
+
+::: danger Deprecated
+**Telepipe is deprecated** and not included in the recommended full stack `guide/setup-all.md:1`. Use `IcedSpear` map warping `IcedSpear/src/main/java/com/stufy/fragmc/icedspear/managers/MapManager.java:1` instead. Docs kept for legacy `1.21` servers. Still works on `Paper 26.2` `api-version: '26.2'` but will not receive new features.
+:::
 
 A lightweight and flexible teleportation plugin for Paper servers that loads teleport locations from a JSON file hosted on the web.
 
