@@ -37,12 +37,37 @@ Install the full **FragMC stack** on one **Paper 26.2** server in under 10 minut
 
 All plugins are published to **GitHub Packages** and **Modrinth** as `2.0.10-alpha`. Pick one:
 
-::: tip Download (Recommended)
+::: tip Option A: PluginPortal (In-Game, Easiest)
+Install [`PluginPortal`](https://modrinth.com/plugin/pluginportal) `1.8+` `Paper/Purpur/Folia` once, then in-game:
+
+`/pp install frost` → `Frost` `2.0.10-alpha`
+`/pp install icedspear` → `IcedSpear` `2.0.10-alpha`
+`/pp install checkpoints` -> `CheckPoints` `2.0.10-alpha` (`fragmc-checkpoints` on Modrinth)
+`/pp install redempt` -> `Redempt` `2.0.10-alpha`
+`/pp install weblink-icedspear` -> `WebLink` `2.0.10-alpha`
+`/pp install editor-addon` / `blocks-addon` / `icedscores` -> `Editor`/`Blocks`/`IcedScore` (or use `/pp view <name>` first to preview icon/description/stats)
+
+Then `/pp update <name>` to update, `/pp list` to see installed via Portal, `/pp view <name>` to preview.
+
+**Example for FragMC stack:**
+```
+/pp install icedspear
+/pp install editor-addon
+/pp install blocks-addon
+/pp install frost
+/pp install redempt
+/pp install weblink-icedspear
+```
+Portal pulls from `Modrinth` `Polymart` `SpigotMC` `Hangar` `100k+` plugins, `No Inactive` filter, works on `1.8+` `Bukkit` `Folia` `Paper`. No `Maven` `settings.xml` needed.
+
+:::
+
+::: tip Option B: Download (Direct)
 Grab the ready-made jars from **Releases** `v2.0.10-alpha` on GitHub (`Frost`, `IcedSpear`, `CheckPoints`, `Redempt`) and `ghcr.io/fragmc/map-submission-bot:latest` for the bot. No build needed.
 :::
 
 <details>
-<summary>Or build locally with JDK 25</summary>
+<summary>Option C: Build locally with JDK 25</summary>
 
 You need `Java 25` and `Maven 3.9+`. Run in order (some addons depend on the core):
 
